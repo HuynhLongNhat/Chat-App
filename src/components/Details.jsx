@@ -1,5 +1,6 @@
 import React from 'react'
 import "../style/Detail.scss"
+import { auth } from '../lib/firebase.config'
 const Details = () => {
     return (
         <div className='detail'>
@@ -45,7 +46,7 @@ const Details = () => {
                     </div>
                 </div>
                 <button>Block User</button>
-                <button className='logout-btn'>Logout</button>
+                <button className='logout-btn' onClick={() => auth.signOut()}>Logout</button>
             </div>
         </div>
     )
