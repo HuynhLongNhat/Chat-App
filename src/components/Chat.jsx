@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "../style/Chat.scss"
 import EmojiPicker from 'emoji-picker-react'
 const Chat = () => {
     const [open, setOpen] = useState(false)
     const [text, setText] = useState("");
+
+    const endRef = useRef(null);
     const handleEmoji = (e) => {
         setText((prev) => prev + e.emoji)
         setOpen(false)
     }
+
+    useEffect(() => {
+        endRef.current?.scrollIntoView({
+            behavior: "smooth"
+        })
+    })
     return (
         <div className='chat'>
             <div className="top">
@@ -46,7 +54,9 @@ const Chat = () => {
                     </div>
 
                 </div>
+                <div ref={endRef}>
 
+                </div>
             </div>
             <div className="bottom">
                 <div className="icons">
