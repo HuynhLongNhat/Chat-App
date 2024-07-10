@@ -57,6 +57,7 @@ const Login = () => {
             })
             toast.success("Account create! You can login now!")
         } catch (error) {
+            console.log(error)
             toast.error(error.message)
         } finally {
             setLoading(false)
@@ -80,7 +81,7 @@ const Login = () => {
                     <label htmlFor='file'>
                         <img src={avatar.url || "./avatar.png"} alt='' />
                         Upload an image</label>
-                    <input type='file' id='file' hidden onChange={handleChangeAvatar} />
+                    <input type='file' id='file' hidden onChange={handleChangeAvatar} name='avatar' />
                     <input type='text' placeholder='Username' name='username' />
                     <input type='email' placeholder='Email' name='email' />
                     <input type='password' placeholder='Password' name='password' />

@@ -6,7 +6,7 @@ const Details = () => {
         <div className='detail'>
             <div className="user">
                 <img src='./avatar.png' alt='' />
-                <h2>Jane Doe</h2>
+                <h4>Jane Doe</h4>
                 <p>Lorem ipsum dolor sit</p>
             </div>
             <div className='info'>
