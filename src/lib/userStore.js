@@ -2,7 +2,7 @@ import { doc, getDoc } from 'firebase/firestore'
 import { create } from 'zustand'
 import { db } from "./firebase.config"
 export const useUserStore = create((set) => ({
-    currentUser: 0,
+    currentUser: null,
     isLoading: true,
     fetchUserInfo: async (uid) => {
         if (!uid) {

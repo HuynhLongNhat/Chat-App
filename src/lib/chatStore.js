@@ -18,13 +18,11 @@ export const useChatStore = create((set) => ({
                 isReceiverBlocked: false,
             })
         }
-
         // CHECK IF RECEIVE IS BLOCKED
-        // eslint-disable-next-line no-dupe-else-if
-        else if (user.blocked.includes(currentUser.id)) {
+        else if (currentUser.blocked.includes(user.id)) {
             return set({
                 chatId,
-                user,
+                user: user,
                 isCurrentUserBlocked: false,
                 isReceiverBlocked: true,
             })
@@ -33,14 +31,14 @@ export const useChatStore = create((set) => ({
             return set({
                 chatId,
                 user,
-                isCurrentUserBlocked: true,
+                isCurrentUserBlocked: false,
                 isReceiverBlocked: false,
             })
         }
     },
     changeBlock: () => {
         set(state => ({
-            ...state, isReceiverBlocked: !state.isCurrentUserBlocked
+            ...state, isReceiverBlocked: !state.isReceiverBlocked
         }))
     }
 
